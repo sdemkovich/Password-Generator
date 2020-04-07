@@ -4,10 +4,11 @@ function generatePassword() {
   /****
    * WRITE YOUR CODE HERE
    */
-  var check = true 
-  while (check) {
+  var check = true; 
 
-    var length = prompt("Enter the length the password between 8 and 128 characters");
+  // To check password's length match the criteria
+  while (check) {
+    var length = prompt("Please enter between 8 and 128 characters to generate your password");
     if (!isNaN(length)) {
       if (length > 8 && length < 128) {
         check = false
@@ -20,11 +21,13 @@ function generatePassword() {
       alert("Not a number")
     }
   }
+  // Set up variables for user's password choice
   var lowerCase = confirm("Should include lowercase?")
   var upperCase = confirm("Should iclude uppercase?")
   var number = confirm("Should iclude numbers?");
   var specialCharacter = confirm("Should iclude special character?");
 
+  // Run alert to display user's password options
   alert("The password length is " + length +
    "\nIncluding lowercase " + lowerCase +
    "\nIncluding uppercase " + upperCase + 
@@ -33,6 +36,7 @@ function generatePassword() {
   
    var passChar = ""
 
+  //  For loop to create password from lower and upper case letters, numbers and special characters
    for ( var i = 0; i < length; i++ ) {
      var randomArray = new Array();
 
@@ -60,6 +64,7 @@ function generatePassword() {
       var specialCharacterCharacter = characters.charAt(Math.floor(Math.random() * charactersLength));
       randomArray.push(specialCharacterCharacter);
     }
+    // Generate password from random characters
     var readyPassword = randomArray[Math.floor(Math.random() * randomArray.length)];
     passChar += readyPassword
    }
